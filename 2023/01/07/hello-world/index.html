@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
         <title>Hello World | Welcome to Qyinf&#39;s Zone</title>
         <meta name="author" content="qyinf">
-        <meta name="description" content="便策马绚烂好风光">
+        <meta name="description" content="">
         <meta name="keywords" content="">
         <link rel="icon" href="/picture/head.jpg">
         <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
@@ -172,6 +172,10 @@
     
     
     
+    <div id="comment">
+        <div id="twikoo-container"></div>
+    </div>
+    
 </div>
 
                         <footer id="footer">
@@ -202,6 +206,17 @@
     
     
     
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            el: "#twikoo-container",
+            envId: "",
+            region: "",
+            path: location.pathname,
+            lang: "zh-CN"
+        })
+    </script>
     
 
 
