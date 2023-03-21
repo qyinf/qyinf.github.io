@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Welcome to Qyinf&#39;s Zone</title>
+        <meta name="author" content="qyinf">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/picture/head.jpg">
+        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+        <script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css">
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features="></script>
+        
+        
+        <script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css">
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        <div id="loading" style="height: 100vh; width: 100vw; position: fixed; display: flex; z-index: 2147483647; justify-content: space-between; background: #fff; transition: all 0.3s ease-out; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none">
+    <div style="position: fixed; height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center">
+        <div id="loadcontent" style="width: 50vmin; height: 50vmin; padding: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: solid 10px #a3ddfb; text-align: center">
+            <div>
+                <h2>LOADING...</h2>
+                <p style="word-break: keep-all">加载过慢请开启缓存（浏览器默认开启）</p>
+                <div>
+                    <img alt="loading" src="/loading.gif" style="width: 60px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="layout">
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Welcome to qyinf's zone</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Welcome to qyinf's zone</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/3/21
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <hr>
+<p>OO博客作业改编了一些扔在了这里<br>使用的主要架构是poly，mono架构，没用哈希表，写了ToString函数，这个函数可能仍然有奇怪的bug但是我不想改了</p>
+<hr>
+<p>[TOC]</p>
+<h1 id="一、题目概述"><a href="#一、题目概述" class="headerlink" title="一、题目概述"></a>一、题目概述</h1><p>本次作业的主要要求，就是对一个输入的表达式进行化简<br>以下是我对表达式结构的个人理解，就不粘贴原题了<br>表达式(expression)的构造如下：</p>
+<pre><code class="java">expression =  term ± term ± term ± term…
+</code></pre>
+<p>即由若干项(term)相加或者相减组成，第一个项的符号可以带也可以不带<br>而term的构造如下:</p>
+<pre><code class="java">term = (±) factor * factor *factor * factor…
+</code></pre>
+<p>即由若干因子(factor)相乘组成，且题目中要求每个term的前面可以带一个正号或负号，也可以不带<br>而因子的类别随着作业的迭代逐渐变多<br><strong><em>第一次作业的因子，只有</em></strong><br>1.常数因子：一个可以带符号，可以带前导零的数字，合法的形式有+000008,-5,1111111111111111111111111111111111111111111<br>2.幂函数因子：字母**常数因子或字母，常数因子只能是正数且不能太大，合法的形式有x**+0003,y**5，z<br>3.表达式因子：(表达式)** 常数因子 或 (表达式) ，常数因子只能是正数且不能太大，合法的形式有 (x),(x)**3,(-x+3)**+005<br><strong><em>第二次作业的因子，增加了两个：</em></strong><br>4.三角函数因子：sin/cos(表达式)**常数因子，或sin/cos(表达式),常数因子只能是正数且不能太大，合法的形式有sin(x)**+5,cos(-y)<br>5.自定义函数因子：<br>在开头的时候，先定义函数：f(x,y,z)=表达式，比如f(x)=x**2,f(z,x)=x+z<br>函数的名字只有f，g，h，且不能重复出现，因此可以知道最多有三个自定义函数<br>调用函数的格式是,f(因子，因子，因子)<br><strong><em>第三次作业的时候，增加了求导因子</em></strong><br>dx | dy | dz (表达式) ，合法的格式有dx (x),dy(y+z+x)等</p>
+<p>我们可以注意到，这些因子中包含了很多嵌套，每一次作业的嵌套规定如下：<br><strong><em>第一次作业</em></strong><br>表达式因子里面的表达式，不可以包含表达式因子，也就是说，不允许出现括号的嵌套<br><strong><em>第二次作业</em></strong><br>1.允许出现任何形式的括号嵌套<br>2.函数的定义不可以引用其他函数，比如不可以出现f(x)=g(x)这种情况，函数的定义也不可以引用自己<br><strong><em>第三次作业</em></strong><br>函数的定义可以引用其他出现过的函数，比如先定义了g，又定义了f，这个时候f的定义可以引用g</p>
+<h1 id="二、作业分析"><a href="#二、作业分析" class="headerlink" title="二、作业分析"></a>二、作业分析</h1><p>写在前面：<br>1.我在hw2的时候经历了一次重构，到hw3的时候变得很简单<br>2.题目中对于空格和符号的要求比较复杂，因此需要设计一个函数：</p>
+<p>去空格；把多个+-符号化简成为一个</p>
+<p>这个函数的思路很简单，就是根据+-号个数的奇偶性进行化简的：</p>
+<pre><code class="java">public static String processStr(String ref) &#123;
+        String ans = &quot;&quot;;
+        ref = ref.replaceAll(&quot; &quot;,&quot;&quot;);
+        int i = 0;
+        while (i &lt; ref.length()) &#123;
+            if (ref.charAt(i) == &#39;+&#39; || ref.charAt(i) == &#39;-&#39;) &#123;
+                int plus = 0;int minus = 0;int j;
+                if (ref.charAt(i) == &#39;+&#39;) &#123;
+                    plus = 1; &#125;
+                else if (ref.charAt(i) == &#39;-&#39;) &#123;
+                    minus = 1; &#125;
+                for (j = i + 1;j &lt; ref.length();j++) &#123;
+                    if (ref.charAt(j) == &#39;+&#39;) &#123;
+                        plus++; &#125;
+                    else if (ref.charAt(j) == &#39;-&#39;) &#123;
+                        minus++; &#125;
+                    else &#123;
+                        break; &#125; &#125;
+                if (minus % 2 == 0) &#123;
+                    ans = ans + &quot;+&quot;; &#125;
+                else &#123;
+                    ans = ans + &quot;-&quot;; &#125;
+                i = j; &#125;
+            else &#123;
+                ans = ans + ref.charAt(i);
+                i++; &#125; &#125;
+        return ans;
+    &#125;
+</code></pre>
+<p><strong>第一次作业被hack，就是因为少了开头的那一句去空格的代码</strong></p>
+<h2 id="HW1"><a href="#HW1" class="headerlink" title="HW1"></a>HW1</h2><h3 id="递归下降的基础版"><a href="#递归下降的基础版" class="headerlink" title="递归下降的基础版"></a>递归下降的基础版</h3><p>递归下降之前，我们首先需要用lexer对string进行转化，这个很简单，就不再这里写了，直接分享递归下降：</p>
+<p>递归下降算法可以解决多层括号嵌套的问题，不少同学在第一次使用了栈的做法，导致后续多层嵌套的时候很被动<br>在拿到hw1的时候，没有任何经验，首先想要的就是怎么样把表达式的结构存下来，于是设计了这样的parser</p>
+<pre><code class="java">parseExpression -&gt; parseItem +- parseItem +- parseItem…
+parseItem -&gt; (parseConstant / parseExpFunc / parseLetter)  *  (parseConstant / parseExpFunc / parseLetter)… 
+</code></pre>
+<p>最后，得到了这样结构的存储形式<br><img src="https://img-community.csdnimg.cn/images/e3b6fa01097b419f999933038d64e04c.jpg" alt="img" title="#left"></p>
+<h3 id="多项式的基础版"><a href="#多项式的基础版" class="headerlink" title="多项式的基础版"></a>多项式的基础版</h3><p>接着，我开始考虑怎么展开成多项式<br>每个单项式的信息有：常数和x，y，z的个数<br>每个多项式都是由很多单项式组成的<br>所以设计一个类叫poly，里面设置了4个Arraylist，</p>
+<pre><code class="java">public class poly &#123;
+private Arraylist&lt;BigInteger&gt; num;
+private Arraylist&lt;Integer&gt; xNum;
+private Arraylist&lt;Integer&gt; yNum;
+private Arraylist&lt;Integer&gt; zNum;
+&#125;
+</code></pre>
+<p>每个Arraylist的第n项，是第n个单项式的常数（x个数，y个数，z个数）<br>首先很容易把常数因子，幂函数因子的信息提取到这个类里面<br>项是由因子相乘的，就是常数相乘，xyz的个数相加，把项也转化到这个类里<br>多项式是由很多项加减的，根据xyz的个数判断是否要合并同类项，然后常数相加减<br>至于多项式因子……<br>多项式的信息已经表示出来了，直接硬乘就好</p>
+<p>最后输出这个多项式</p>
+<h2 id="HW2"><a href="#HW2" class="headerlink" title="HW2"></a>HW2</h2><h3 id="重构分析"><a href="#重构分析" class="headerlink" title="重构分析"></a>重构分析</h3><p>为什么选择重构？<br>主要有以下几点：<br>1.每个单项式的信息变多了，甚至包含了两个多项式数组（每个sin，cos的内容展开都是一个多项式，多个sin，cos相乘就是多项式数组）<br>仅仅用4个Arraylist去存储单项式的信息不够了，而且在poly这个类里定义一个数组，这个数组的元素也是poly类型的，太离谱<br>2.在合并同类项的时候，最关键的地方是，我们要判断两单项式除常数以外的部分是否相同<br>在这里就是判断两个单项式——<br>x，y，z的个数是否相同？<br>sin，cos里面的内容是否相同？</p>
+<h3 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h3><h4 id="新类设计"><a href="#新类设计" class="headerlink" title="新类设计"></a>新类设计</h4><p>因此，我设计了两个类，poly和mono</p>
+<p>这里面只写了关键的信息</p>
+<p>Mono类如下：</p>
+<pre><code class="java">public class Mono &#123;
+    private int xx; //x个数
+    private int yy; //y个数
+    private int zz; //z个数
+    private int sign; //符号，用1或-1代表这个mono的正负
+    private int flg; //to String
+    private BigInteger num; //常数项
+    private ArrayList&lt;Poly&gt; sinContent = new ArrayList&lt;&gt;();  //sin里面的内容的数组
+    private ArrayList&lt;Poly&gt; cosContent = new ArrayList&lt;&gt;(); //cos里面的内容的数组
+    private ArrayList&lt;String&gt; sinContent2 = new ArrayList&lt;&gt;();//to String
+    private ArrayList&lt;String&gt; cosContent2 = new ArrayList&lt;&gt;();//to String
+&#125;
+</code></pre>
+<p>Poly类如下：</p>
+<pre><code class="java">public class Poly&#123;
+    private ArrayList&lt;Mono&gt; monos = new ArrayList&lt;&gt;();
+&#125;
+</code></pre>
+<h4 id="递归下降的重构"><a href="#递归下降的重构" class="headerlink" title="递归下降的重构"></a>递归下降的重构</h4><p>递归下降的思路，也从先存储到不同的因子里，到了全部转化成多项式的形式<br>（第三次作业迭代的时候，我记得老师说过这样会丢失信息啥的，但是自己还觉得挺简便的）<br>以下为了便于理解，简单列出了自己的递归下降写法</p>
+<pre><code class="java">public class Parser &#123;
+    public Poly parseExpression() &#123;
+        ArrayList&lt;Poly&gt; polies = new ArrayList&lt;&gt;();
+        ArrayList&lt;Integer&gt; coe = new ArrayList&lt;&gt;();
+        while (true) &#123;
+            if (condition…)break;
+            else if (condition…)setCoe;
+            else polies.add(parseItem());
+        &#125;
+        return ;
+    &#125;
+    public Poly parseItem() &#123;
+        ArrayList&lt;Poly&gt; polies = new ArrayList&lt;&gt;();
+        Poly ans = new Poly();
+        while (true) &#123;
+            if (condition…)break; 
+            else if (condition…) polies.add(parseFactor());
+            else lexer.next(); 
+        &#125;
+        return ;
+    &#125;
+    public Poly parseFactor() &#123;
+        if (condition) &#123;
+            parseConstant() &#125;
+        else if (condition1) &#123;
+            …… &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>我们很容易把每个因子的信息都存储到一个poly里</p>
+<hr>
+<p>我们需要写多项式的加法和乘法的函数<br>可以看出最后的Expression并没有计算出来，我们只是把它表示成了poly数组，需要把他们相加<br>Item也没有计算出来，我们只是把它表示成了poly数组，需要把他们相乘<br>这里的加还是简单的堆砌，并没有合并同类项目，导致后来出现了Java heap的情况<br><del>但是其实根据后文的方法完全可以解决，是因为我太懒了所以没有弄</del></p>
+<pre><code class="java">    public void addPoly(Poly ref,int sign) &#123; //sign是1就是加，-1就是减
+        ArrayList&lt;Mono&gt; monos1 = this.monos;
+        ArrayList&lt;Mono&gt; monos2 = ref.getMono();
+        ArrayList&lt;Mono&gt; mono = new ArrayList&lt;&gt;();
+        for (int i = 0;i &lt; monos1.size();i++) &#123;
+            mono.add(monos1.get(i));
+        &#125;
+        for (int i = 0;i &lt; monos2.size();i++) &#123;
+            if (sign == 1) &#123;
+                mono.add(monos2.get(i));
+            &#125;
+            else &#123;
+                Mono tmp = monos2.get(i);
+                tmp.reverseSign();
+                mono.add(tmp);
+            &#125;
+        &#125;
+        this.monos = mono;
+    &#125;
+</code></pre>
+<p>乘法的思路很简单，xyz个数相加，sin和cos数组简单的合并到一起，也会出现java heap<br><del>但是这个似乎不太好解决</del></p>
+<pre><code class="java">   public void multiply(Poly ref) &#123;
+       ArrayList&lt;Mono&gt; mono1 = this.monos;
+       ArrayList&lt;Mono&gt; mono2 = ref.getMono();
+       ArrayList&lt;Mono&gt; mono = new ArrayList&lt;&gt;();
+       for (int i = 0;i &lt; mono1.size();i++) &#123;
+           for (int j = 0;j &lt; mono2.size();j++) &#123;
+               Mono tmp = mulMono(mono1.get(i),mono2.get(j));
+               mono.add(tmp);
+           &#125;
+       &#125;
+       this.monos = mono;
+   &#125;
+</code></pre>
+<p>这里会出现关于深克隆和浅克隆的bug，在后面的bug分析里会说</p>
+<h4 id="合并同类项？"><a href="#合并同类项？" class="headerlink" title="合并同类项？"></a>合并同类项？</h4><p>对一个poly合并同类项，要看两个mono除数字以外的其他部分是否相同，如果相同，就要把这两个mono合并<br>在这里，有人选择了hashmap，我则使用了较为少见的toString函数</p>
+<p>怎么把poly转化成String？很麻烦，可以用图像表示这个递归关系：</p>
+<p><img src="https://img-community.csdnimg.cn/images/7c0b04b1fa5140f5acff062ac1b9a5bb.jpg" alt="img" title="#left"></p>
+<p>结合我抽象的的poly可能的结构来看可能会更直观：</p>
+<p><img src="https://img-community.csdnimg.cn/images/f98018ca50534adcb04cfa9201aa65b6.jpg" alt="img" title="#left"></p>
+<h4 id="自定义函数调用和bug分析"><a href="#自定义函数调用和bug分析" class="headerlink" title="自定义函数调用和bug分析"></a>自定义函数调用和bug分析</h4><p>我定义了一个class用来存储函数的定义，下文中简称“函数定义类”，内容如下：</p>
+<pre><code class="java">public class FunctionDefine &#123;
+    private String name;
+    private String content;
+    private ArrayList&lt;String&gt; variable = new ArrayList&lt;&gt;();
+&#125;
+</code></pre>
+<p>对自定义函数的解析，我是写了一个新的lexer和新的parser，因为我感觉结构很不一样</p>
+<p>在调用函数的时候应该怎么做？拿到这个问题，我首先想到了replaceAll，这不就是把函数内容里面的x，全部转化成调用的时候的第一个因子么？y，z以此类推。</p>
+<p>但是我出现了这样的bug：</p>
+<pre><code class="java">f(y,x)=x-2*y //函数定义
+f(x,y)//函数调用
+</code></pre>
+<p>函数调用的时候，得到的结果本应该是y-2*x</p>
+<p>但是我们先把y全部换成了x得到x-2*x</p>
+<p>又把x全部换成y得到了y-2*y</p>
+<p>这样的结果明显是错的。这是为什么呢？</p>
+<p>其实我们不是把函数内容里的x转化成第一个因子，而是把函数的第一个自变量转化为第一个因子，而函数的第一个自变量并不一定是x</p>
+<p>怎么办呢？难道还要三层if判断函数的第一个自变量是x还是y还是z吗？那也太麻烦了！</p>
+<p>我的思路是：把函数内容里的第一个自变量全部变成a，第二个自变量全部变成b，第三个自变量全部变成d（不变成c是防止把cos里面的c也改了OvO）</p>
+<p>这样转化的时候就是把a转化成第一个因子，把b转化成第二个因子，d转化成第三个因子</p>
+<h2 id="HW3"><a href="#HW3" class="headerlink" title="HW3"></a>HW3</h2><h3 id="求导因子"><a href="#求导因子" class="headerlink" title="求导因子"></a>求导因子</h3><p>增加了一个求导因子，求导因子应该作为一个factor，而非expression或Item</p>
+<p>求导方法的书写其实特别简单：</p>
+<p>对一个poly求导就是对它的每个mono求导再加起来</p>
+<p>对一个mono求导得到的结果应该是一个poly</p>
+<p>对每一个mono求导的思路如下,以x为例，展示思路</p>
+<pre><code class="java">public Poly monoDevX() &#123;
+        //每一个单项式求导以后会变成很多多项式
+        BigInteger ref = new BigInteger(Integer.toString(this.xx));
+       //首先不管sin和cos，对字母部分求导
+        Mono mono1 = new Mono();
+        mono1.set(this.xx - 1,this.yy,this.zz,this.sign,this.flg,ref.multiply(this.num));
+        mono1.setSinContent(this.sinContent);
+        mono1.setCosContent(this.cosContent);
+        Poly ans = new Poly();
+        ans.addMono(mono1);
+        //然后对sin求导，符号不会发生改变，sin少了1，cos多了1
+        for (int i = 0;i &lt; this.sinContent.size();i++) &#123;
+            Mono monoI = new Mono();
+            monoI.addCosContent(this.sinContent.get(i));
+            for (int j = 0;j &lt; this.sinContent.size();j++) &#123;
+                if (j != i) &#123;
+                    monoI.addSinContent(this.sinContent.get(j)); &#125;
+            &#125;
+            for (int j = 0;j &lt; this.cosContent.size();j++) &#123;
+                monoI.addCosContent(this.cosContent.get(j));
+            &#125;
+            //这里是求导法则的调用，对sin里面求导，再与外面的相乘
+            monoI.set(this.xx,this.yy,this.zz,this.sign,this.flg,this.num);
+            Poly tmp = new Poly();
+            tmp.addMono(monoI);
+            Poly tmp1 = new Poly();
+            tmp1.addPoly(this.sinContent.get(i),1);
+            tmp1.devX();
+            tmp.multiply(tmp1);
+            ans.addPoly(tmp,1);
+        &#125;
+    //然后对cos求导，符号会发生改变，sin少了1，cos多了1
+        for (int i = 0;i &lt; cosContent.size();i++) &#123;
+            Mono monoI = new Mono();
+            monoI.addSinContent(this.cosContent.get(i));
+            for (int j = 0;j &lt; this.sinContent.size();j++) &#123;
+                monoI.addSinContent(this.sinContent.get(j));
+            &#125;
+            for (int j = 0;j &lt; this.cosContent.size();j++) &#123;
+                if (j != i) &#123;
+                    monoI.addCosContent(this.cosContent.get(j));
+                &#125;
+            &#125;
+            monoI.set(this.xx,this.yy,this.zz,0 - this.sign,this.flg,this.num);
+            Poly tmp = new Poly();
+            tmp.addMono(monoI);
+            Poly tmp1 = new Poly();
+            tmp1.addPoly(this.cosContent.get(i),1);
+            tmp1.devX();
+            tmp.multiply(tmp1);
+            ans.addPoly(tmp,1);
+        &#125;
+        return ans;
+    &#125;
+</code></pre>
+<h3 id="函数调用函数"><a href="#函数调用函数" class="headerlink" title="函数调用函数"></a>函数调用函数</h3><p>在这里，我HW2的方便性就展示出来了</p>
+<p>HW2中我们有了这个函数的content，里面可能包含求导项，所以我只需要把它当成一个表达式进行化简，化简的过程中</p>
+<p>1.求导就已经被算出来了</p>
+<p>2.把已经定义的函数存在parser里，就可以实现函数定义的时候对其他函数的调用了</p>
+<p>化简成一个多项式后，再通过ToString，存到函数定义类里，就可以继续使用了！</p>
+<h1 id="三、BUG分析"><a href="#三、BUG分析" class="headerlink" title="三、BUG分析"></a>三、BUG分析</h1><p>我把三次作业的bug都放在一起说，因为感觉都差不多</p>
+<p>被hack的原因</p>
+<h2 id="HW1–做测试太少导致忘记去空格"><a href="#HW1–做测试太少导致忘记去空格" class="headerlink" title="HW1–做测试太少导致忘记去空格"></a>HW1–做测试太少导致忘记去空格</h2><p>进行原始数据处理的时候没有去空格</p>
+<p>在我去空格的函数中，主要思路是两个for循环遍历，遇见一个+或-，就从这个往下遍历，计数算下面+和-的个数，直到遇见其他符号停止遍历，再根据它们数量的奇偶性决定这个符号是+还是-。</p>
+<p>如果没有提前去空格，会导致连续的+和-，在中间包含空格的时候就已经停止遍历了</p>
+<h2 id="HW2–递归下降的re"><a href="#HW2–递归下降的re" class="headerlink" title="HW2–递归下降的re"></a>HW2–递归下降的re</h2><p>递归下降两者连接的时候错误</p>
+<p>递归下降会出现递归调用，比如sin里面也是一个多项式，需要在parseT的时候再递归调用parseExpression，如果break的条件没有设置好，就会导致re</p>
+<p>个人认为还是挺容易出错的，我的hw2被hack就是递归调用的部分错了，虽然只有一个点但是re了好多</p>
+<p>其实在我写第一次作业的时候，大多数的时间都用来de递归下降的bug，即使这样还是在强测的时候被hack了。</p>
+<p>当时hack我的数据大概是这样的：</p>
+<pre><code>3
+f(x,y,z)=+-(-+cos((-x+--31))**3-z**1)+-(--57-+(-+x**0-1)**0)
+g(x,y,z)=-+(y*x*z)
+h(y,z,x)=-+(+65-(++cos(y)**1+-y**1)**0)++(++41-+y**0)
++g(x,(-f((f(49,42,(-x-10)))**2,-1,(-f((--(++x**1--2)),-1,-11)+(g(x**2,x**1,-1)+f(x,+0,x))))+x),x)
+</code></pre>
+<p>特别复杂，但是其实可以把数据分成一段一段的一次输入进去，或者把g里面的因子从简单到复杂依次输入进去，最后找到了错误的地方在于自定义函数的调用，因为在我的架构里，可能会出现这样的情况：</p>
+<p>比如f(-(x),y,z)</p>
+<p>在解析函数里面因子的时候，我调用了parseItem函数</p>
+<p>但是parseItem跳出循环的条件如下</p>
+<pre><code class="java">   if (lexer.getToken().getType().equals(&quot;end&quot;)) &#123;
+break; &#125;
+  else if (lexer.getToken().getType().equals(&quot;rightBracket&quot;)) &#123;
+break; &#125;
+  else if (lexer.getToken().getType().equals(&quot;comma&quot;)) &#123;
+break; &#125;
+  else if (lexer.getToken().getType().equals(&quot;plus&quot;) ||
+lexer.getToken().getType().equals(&quot;minus&quot;)) &#123;
+break; &#125;
+</code></pre>
+<p>此时parseItem会认为已经解析完成，并不会把f函数里面的因子解析出来，会造成re的情况</p>
+<p>解决的办法有两个：</p>
+<p>1.每一次在进行代入的时候前面都加一层括号</p>
+<p>2.直接调用解析表达式的函数，反正表达式和项是可以互相转换的</p>
+<h2 id="HW3–formath和深浅克隆"><a href="#HW3–formath和深浅克隆" class="headerlink" title="HW3–formath和深浅克隆"></a>HW3–formath和深浅克隆</h2><p>1.hw3的强测没有错，但是在互测的时候被卡了一次格式的输出</p>
+<p>具体错误的数据点如下：</p>
+<pre><code class="java">3
+f(z)= - +sin(+3)-+ 1
+g(x)= - +cos(1) -  1 * -4
+h(x,y)= +x**+0 * +4-f(y)*y
+ -- (-cos(cos(y ** 3)) + + cos((  +3 +-1* 3)** 1)*g(y))** +1
+</code></pre>
+<p>是我没有实现“实时”的化简导致的错误，但是具体为啥这样会错其实我也不知道</p>
+<p>2.HW3迭代的时候，我把所有和poly有关的函数全部存储到了poly类里，并不再单独写出来，因此发现了一个和深克隆浅克隆相关的错误，如图所示</p>
+<p><img src="/../../img/image-20230317164643716.png"></p>
+<p>我定义了一个名叫ans的Poly类，指向了polies.get(0)，后文调用ans的add函数的时候，polies.get(0)也会发生改变，如果还需要用polies.get(0)，结果就会产生错误</p>
+<p>为了不改变polies[0]的值，我们应该new一个新类出来，再把polies.get(0)的值一份份拷贝到ans里面，根据我的设计，可以简化为这样的步骤</p>
+<pre><code class="java">Poly ans = new Poly();
+ans.addPoly(polies.get(0)) //实现了深克隆
+</code></pre>
+<h1 id="四、复杂度分析"><a href="#四、复杂度分析" class="headerlink" title="四、复杂度分析"></a>四、复杂度分析</h1><h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="/../../img/eee.png"></p>
+<h2 id="类分析"><a href="#类分析" class="headerlink" title="类分析"></a>类分析</h2><p>1.两个parser和两个Lexer：</p>
+<p>parser和Lexer就是为了解析我们要化简的多项式</p>
+<p>parserFunc和LexerFunc是因为函数定义的结构和普通多项式的结构很不一样，以及我想我又不想再修改原本就<del>bug满满</del>的parser函数，所以就增加了一个</p>
+<p>2.FunctionDefine：</p>
+<p>为了存储函数定义的信息，在1中已经提到，就不再多说</p>
+<p>3.Poly和Mono类</p>
+<p>必不可少的Poly和Mono架构，为了存储多项式的信息</p>
+<p>其他好像没什么多余的类了</p>
+<h1 id="五、优缺点分析"><a href="#五、优缺点分析" class="headerlink" title="五、优缺点分析"></a>五、优缺点分析</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>1.高内聚低耦合在本代码中的体现：</p>
+<p>高内聚：每个类都有自己很全的方法，可以从上图中看出，poly类有自己的ToString函数，dev函数，mono类也是，也就是说，每个类的功能都很全</p>
+<p>低耦合：类和类之间的功能相互干涉较少，比如re一定是递归下降的错误，输出格式错误就去检查mono和poly的ToString函数，求导错误就去检查求导函数，只要修改好了一个函数的错误就够了，不需要再顺带修改其他，模块和模块之间相互独立</p>
+<p>2.ToString函数给我带来的简便性</p>
+<p>方便对拍，因为不同形式的输入都可以根据字典序排序变成相同的化简顺序</p>
+<p>容易合并同类项，我们可以实现string和poly的互换，也就可以做更深层次的合并</p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>1.某个类的某个方法会被调用太多次</p>
+<p>在复杂度分析表中可以看出，比较接口和ToString函数被调用的次数过多，因此只要有一个微小的错误，就极有可能影响到很多地方。为此，我想到的解决思路是统一在某个阶段进行合并化简，而不是进行边合并边化简的架构，但同时也可能带来Java heap等问题，还需要寻找一个折中的思路</p>
+<p>2.递归下降的条件过于复杂</p>
+<p><del>一个优美的递归下降不应该出现那么多的if语句</del></p>
+<p>可能我对于每个结构的分析不够到位，导致在递归下降中出现了各种特判。在后面很多bug也都是出现在递归下降里</p>
+<p>3.没有使用Hashmap</p>
+<p>为什么我把它列为一个缺点呢？因为ToString方法虽然使用简便但是写起来很困难很困难，对我这种蒟蒻来说bug都是通宵改出来的，听说Hashmap可能会更简单，但是因为从头到位都没有用过哈希表存数据，所以也就没有用HashCode判断相等，下次可以试一试</p>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="twikoo-container"></div>
+    </div>
+    
+</div>
+
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2023 Welcome to qyinf&#39;s zone
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @qyinf
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> & <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+
+                    </div>
+                </div>
+            </transition>
+            <div id="showimg">
+                <img id="showimg-content" alt="showimg">
+            </div>
+        </div>
+        <script src="/js/functions.js"></script>
+<script src="/js/particlex.js"></script>
+
+    
+    
+    
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            el: "#twikoo-container",
+            envId: "",
+            region: "",
+            path: location.pathname,
+            lang: "zh-CN"
+        })
+    </script>
+    
+
+
+    </body>
+</html>
+
+<!-- JS -->
+<script src="/js/<file-name>"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="/css/<file-name>" />
+
+    <canvas
+    id="background"
+    style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:-1"
+></canvas>
+<script src="/js/background.min.js"></script>
+
+<div id="cursor"></div>
+<link rel="stylesheet" href="/css/cursor.min.css" />
+<script src="/js/cursor.min.js"></script>
+
+<canvas
+    id="fireworks"
+    style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:32767"
+></canvas>
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+<script src="/js/fireworks.min.js"></script>
