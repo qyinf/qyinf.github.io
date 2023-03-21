@@ -145,9 +145,23 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/3/16
+            2023/3/21
         </span>
         
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%8C%97%E8%88%AA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">
+                    北航操作系统
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     
@@ -159,7 +173,7 @@
 <p>虚拟地址和物理地址的概念大家应该已经耳熟能详了，虚拟内存，物理内存，外存的概念应该也弄清楚了吧~</p>
 <p><del>如果不会就去补理论课qwp</del></p>
 <h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h2><p>我们用到的MIPS 3000，虚拟地址的大小是4GB，这4GB应该怎么使用呢？课程组给出的内存图如下：</p>
-<p><img src="/../../img/4-1679386903022-2-1679387018451-2.png"></p>
+<p><img src="/2023/03/21/Lab2-0/../img/4-1679386903022-2-1679387018451-2.png"></p>
 <p>lab1完成以后，我们已经跳转到了mips_init函数，那么现在，就要对物理内存的初始化做准备了。</p>
 <h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>2.1的工作简单来说就是以下几个步骤：</p>
 <p>1.探测一下我们现在有多少物理内存的空间，MIPS 3000上说有512M可用物理内存，但是可能某种原因有些内存不能用了，所以需要探测一下</p>
@@ -303,7 +317,7 @@
 &#125;
 </code></pre>
 <p>展现在图片里是这样的</p>
-<p><img src="/../../img/image-20230319101431647.png"></p>
+<p><img src="/2023/03/21/Lab2-0/../img/image-20230319101431647.png"></p>
 <h4 id="Struct-page-list"><a href="#Struct-page-list" class="headerlink" title="Struct page list"></a>Struct page list</h4><p>这是一个思考题，结构如下</p>
 <pre><code class="c">struct Page_list &#123;
     struct &#123;

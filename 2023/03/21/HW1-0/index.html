@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hw1 | Welcome to Qyinf&#39;s Zone</title>
+        <title>HW1 | Welcome to Qyinf&#39;s Zone</title>
         <meta name="author" content="qyinf">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -138,7 +138,7 @@
                     <div id="main">
                         <div class="article">
     <div>
-        <h1>Hw1 </h1>
+        <h1>HW1 </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -148,6 +148,20 @@
             2023/3/21
         </span>
         
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%8C%97%E8%88%AA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="color: #03a9f4">
+                    北航面向对象
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     
@@ -198,7 +212,7 @@
 <pre><code class="java">parseExpression -&gt; parseItem +- parseItem +- parseItem…
 parseItem -&gt; (parseConstant / parseExpFunc / parseLetter)  *  (parseConstant / parseExpFunc / parseLetter)… 
 </code></pre>
-<p>最后，得到了这样结构的存储形式<br><img src="/../../img/e3b6fa01097b419f999933038d64e04c.jpg" title="#left"></p>
+<p>最后，得到了这样结构的存储形式<br><img src="/2023/03/21/HW1-0/1.jpg"></p>
 <h3 id="多项式的基础版"><a href="#多项式的基础版" class="headerlink" title="多项式的基础版"></a>多项式的基础版</h3><p>接着，我开始考虑怎么展开成多项式<br>每个单项式的信息有：常数和x，y，z的个数<br>每个多项式都是由很多单项式组成的<br>所以设计一个类叫poly，里面设置了4个Arraylist，</p>
 <pre><code class="java">public class poly &#123;
 private Arraylist&lt;BigInteger&gt; num;
@@ -285,25 +299,25 @@ private Arraylist&lt;Integer&gt; zNum;
     &#125;
 </code></pre>
 <p>乘法的思路很简单，xyz个数相加，sin和cos数组简单的合并到一起，也会出现java heap<br><del>但是这个似乎不太好解决</del></p>
-<pre><code class="java">   public void multiply(Poly ref) &#123;
-       ArrayList&lt;Mono&gt; mono1 = this.monos;
-       ArrayList&lt;Mono&gt; mono2 = ref.getMono();
-       ArrayList&lt;Mono&gt; mono = new ArrayList&lt;&gt;();
-       for (int i = 0;i &lt; mono1.size();i++) &#123;
-           for (int j = 0;j &lt; mono2.size();j++) &#123;
-               Mono tmp = mulMono(mono1.get(i),mono2.get(j));
-               mono.add(tmp);
-           &#125;
-       &#125;
-       this.monos = mono;
-   &#125;
+<pre><code class="java">  public void multiply(Poly ref) &#123;
+      ArrayList&lt;Mono&gt; mono1 = this.monos;
+      ArrayList&lt;Mono&gt; mono2 = ref.getMono();
+      ArrayList&lt;Mono&gt; mono = new ArrayList&lt;&gt;();
+      for (int i = 0;i &lt; mono1.size();i++) &#123;
+          for (int j = 0;j &lt; mono2.size();j++) &#123;
+              Mono tmp = mulMono(mono1.get(i),mono2.get(j));
+              mono.add(tmp);
+          &#125;
+      &#125;
+      this.monos = mono;
+  &#125;
 </code></pre>
 <p>这里会出现关于深克隆和浅克隆的bug，在后面的bug分析里会说</p>
 <h4 id="合并同类项？"><a href="#合并同类项？" class="headerlink" title="合并同类项？"></a>合并同类项？</h4><p>对一个poly合并同类项，要看两个mono除数字以外的其他部分是否相同，如果相同，就要把这两个mono合并<br>在这里，有人选择了hashmap，我则使用了较为少见的toString函数</p>
 <p>怎么把poly转化成String？很麻烦，可以用图像表示这个递归关系：</p>
-<p><img src="/../../img/7c0b04b1fa5140f5acff062ac1b9a5bb.jpg" alt="img" title="#left"></p>
+<p><img src="/2023/03/21/HW1-0/2.jpg"></p>
 <p>结合我抽象的的poly可能的结构来看可能会更直观：</p>
-<p><img src="/../../img/f98018ca50534adcb04cfa9201aa65b6.jpg" alt="img" title="#left"></p>
+<p><img src="/2023/03/21/HW1-0/3.jpg"></p>
 <h4 id="自定义函数调用和bug分析"><a href="#自定义函数调用和bug分析" class="headerlink" title="自定义函数调用和bug分析"></a>自定义函数调用和bug分析</h4><p>我定义了一个class用来存储函数的定义，下文中简称“函数定义类”，内容如下：</p>
 <pre><code class="java">public class FunctionDefine &#123;
     private String name;
@@ -434,13 +448,13 @@ h(x,y)= +x**+0 * +4-f(y)*y
 </code></pre>
 <p>是我没有实现“实时”的化简导致的错误，但是具体为啥这样会错其实我也不知道</p>
 <p>2.HW3迭代的时候，我把所有和poly有关的函数全部存储到了poly类里，并不再单独写出来，因此发现了一个和深克隆浅克隆相关的错误，如图所示</p>
-<p><img src="/../../img/image-20230317164643716.png"></p>
+<p><img src="/2023/03/21/HW1-0/5.png"></p>
 <p>我定义了一个名叫ans的Poly类，指向了polies.get(0)，后文调用ans的add函数的时候，polies.get(0)也会发生改变，如果还需要用polies.get(0)，结果就会产生错误</p>
 <p>为了不改变polies[0]的值，我们应该new一个新类出来，再把polies.get(0)的值一份份拷贝到ans里面，根据我的设计，可以简化为这样的步骤</p>
 <pre><code class="java">Poly ans = new Poly();
 ans.addPoly(polies.get(0)) //实现了深克隆
 </code></pre>
-<h1 id="四、复杂度分析"><a href="#四、复杂度分析" class="headerlink" title="四、复杂度分析"></a>四、复杂度分析</h1><h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="/../../img/eee.png"></p>
+<h1 id="四、复杂度分析"><a href="#四、复杂度分析" class="headerlink" title="四、复杂度分析"></a>四、复杂度分析</h1><h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="/2023/03/21/HW1-0/4.png"></p>
 <h2 id="类分析"><a href="#类分析" class="headerlink" title="类分析"></a>类分析</h2><p>1.两个parser和两个Lexer：</p>
 <p>parser和Lexer就是为了解析我们要化简的多项式</p>
 <p>parserFunc和LexerFunc是因为函数定义的结构和普通多项式的结构很不一样，以及我想我又不想再修改原本就<del>bug满满</del>的parser函数，所以就增加了一个</p>
@@ -461,7 +475,7 @@ ans.addPoly(polies.get(0)) //实现了深克隆
 <p><del>一个优美的递归下降不应该出现那么多的if语句</del></p>
 <p>可能我对于每个结构的分析不够到位，导致在递归下降中出现了各种特判。在后面很多bug也都是出现在递归下降里</p>
 <p>3.没有使用Hashmap</p>
-<p>为什么我把它列为一个缺点呢？因为ToString方法虽然使用简便但是写起来很困难很困难，对我这种蒟蒻来说bug都是通宵改出来的，听说Hashmap可能会更简单，但是因为从头到位都没有用过哈希表存数据，所以也就没有用HashCode判断相等，下次可以试一试</p>
+<p>为什么我把它列为一个缺点呢？因为ToString方法虽然使用简便但是写起来很困难很困难，对我这种蒟蒻来说bug都是通宵改出来的，听说Hashmap可能会更简单，但是因为从头到位都没有用过哈希表存数据，所以也就没有用HashCode判断相等，</p>
 
     </div>
     
