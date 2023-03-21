@@ -152,8 +152,7 @@
     </div>
     
     <div class="content" v-pre>
-        <p>[TOC]</p>
-<h1 id="一、题目概述"><a href="#一、题目概述" class="headerlink" title="一、题目概述"></a>一、题目概述</h1><p>本次作业的主要要求，就是对一个输入的表达式进行化简<br>以下是我对表达式结构的个人理解，就不粘贴原题了<br>表达式(expression)的构造如下：</p>
+        <h1 id="一、题目概述"><a href="#一、题目概述" class="headerlink" title="一、题目概述"></a>一、题目概述</h1><p>本次作业的主要要求，就是对一个输入的表达式进行化简<br>以下是我对表达式结构的个人理解，就不粘贴原题了<br>表达式(expression)的构造如下：</p>
 <pre><code class="java">expression =  term ± term ± term ± term…
 </code></pre>
 <p>即由若干项(term)相加或者相减组成，第一个项的符号可以带也可以不带<br>而term的构造如下:</p>
@@ -199,7 +198,7 @@
 <pre><code class="java">parseExpression -&gt; parseItem +- parseItem +- parseItem…
 parseItem -&gt; (parseConstant / parseExpFunc / parseLetter)  *  (parseConstant / parseExpFunc / parseLetter)… 
 </code></pre>
-<p>最后，得到了这样结构的存储形式<br><img src="https://img-community.csdnimg.cn/images/e3b6fa01097b419f999933038d64e04c.jpg" alt="img" title="#left"></p>
+<p>最后，得到了这样结构的存储形式<br><img src="/../../img/e3b6fa01097b419f999933038d64e04c.jpg" title="#left"></p>
 <h3 id="多项式的基础版"><a href="#多项式的基础版" class="headerlink" title="多项式的基础版"></a>多项式的基础版</h3><p>接着，我开始考虑怎么展开成多项式<br>每个单项式的信息有：常数和x，y，z的个数<br>每个多项式都是由很多单项式组成的<br>所以设计一个类叫poly，里面设置了4个Arraylist，</p>
 <pre><code class="java">public class poly &#123;
 private Arraylist&lt;BigInteger&gt; num;
@@ -302,9 +301,9 @@ private Arraylist&lt;Integer&gt; zNum;
 <p>这里会出现关于深克隆和浅克隆的bug，在后面的bug分析里会说</p>
 <h4 id="合并同类项？"><a href="#合并同类项？" class="headerlink" title="合并同类项？"></a>合并同类项？</h4><p>对一个poly合并同类项，要看两个mono除数字以外的其他部分是否相同，如果相同，就要把这两个mono合并<br>在这里，有人选择了hashmap，我则使用了较为少见的toString函数</p>
 <p>怎么把poly转化成String？很麻烦，可以用图像表示这个递归关系：</p>
-<p><img src="https://img-community.csdnimg.cn/images/7c0b04b1fa5140f5acff062ac1b9a5bb.jpg" alt="img" title="#left"></p>
+<p><img src="/../../img/7c0b04b1fa5140f5acff062ac1b9a5bb.jpg" alt="img" title="#left"></p>
 <p>结合我抽象的的poly可能的结构来看可能会更直观：</p>
-<p><img src="https://img-community.csdnimg.cn/images/f98018ca50534adcb04cfa9201aa65b6.jpg" alt="img" title="#left"></p>
+<p><img src="/../../img/f98018ca50534adcb04cfa9201aa65b6.jpg" alt="img" title="#left"></p>
 <h4 id="自定义函数调用和bug分析"><a href="#自定义函数调用和bug分析" class="headerlink" title="自定义函数调用和bug分析"></a>自定义函数调用和bug分析</h4><p>我定义了一个class用来存储函数的定义，下文中简称“函数定义类”，内容如下：</p>
 <pre><code class="java">public class FunctionDefine &#123;
     private String name;

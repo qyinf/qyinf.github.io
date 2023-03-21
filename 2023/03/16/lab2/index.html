@@ -159,8 +159,7 @@
 <p>虚拟地址和物理地址的概念大家应该已经耳熟能详了，虚拟内存，物理内存，外存的概念应该也弄清楚了吧~</p>
 <p><del>如果不会就去补理论课qwp</del></p>
 <h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h2><p>我们用到的MIPS 3000，虚拟地址的大小是4GB，这4GB应该怎么使用呢？课程组给出的内存图如下：</p>
-<img src="../../img/image-20230316235640279.png" alt="image-20230316235640279" style="zoom:150%;" />
-
+<p><img src="/../../img/4-1679386903022-2-1679387018451-2.png"></p>
 <p>lab1完成以后，我们已经跳转到了mips_init函数，那么现在，就要对物理内存的初始化做准备了。</p>
 <h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>2.1的工作简单来说就是以下几个步骤：</p>
 <p>1.探测一下我们现在有多少物理内存的空间，MIPS 3000上说有512M可用物理内存，但是可能某种原因有些内存不能用了，所以需要探测一下</p>
@@ -304,7 +303,7 @@
 &#125;
 </code></pre>
 <p>展现在图片里是这样的</p>
-<p><img src="/../../img/image-20230319101431647.png" alt="image-20230319101431647"></p>
+<p><img src="/../../img/image-20230319101431647.png"></p>
 <h4 id="Struct-page-list"><a href="#Struct-page-list" class="headerlink" title="Struct page list"></a>Struct page list</h4><p>这是一个思考题，结构如下</p>
 <pre><code class="c">struct Page_list &#123;
     struct &#123;
@@ -364,7 +363,6 @@
 <p>kuseg阶段虚拟地址到物理地址的转换，需要通过两级页表</p>
 <p><strong><em>tips:两级页表是为了节省空间</em></strong></p>
 <p>通过两级页表实现虚拟地址到物理地址的转换思路如下：</p>
-<p><img src="/../../img/image-20230319111752449.png" alt="image-20230319111752449"></p>
 <p>非常简单易懂，就不再过多介绍</p>
 <p>这里面前面介绍了好多定义，全部放在进行函数填充的时候介绍</p>
 <h3 id="pgdir-walk"><a href="#pgdir-walk" class="headerlink" title="pgdir_walk"></a>pgdir_walk</h3>
